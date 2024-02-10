@@ -1,29 +1,29 @@
 <?php
 include('env.php');
-$url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
-$parameters = [
-  'start' => '1',
-  'limit' => '5000',
-  'convert' => 'USD'
-];
 
-$headers = [
-  'Accepts: application/json',
-  "X-CMC_PRO_API_KEY: {$API_KEY}"
-];
-$qs = http_build_query($parameters); // query string encode the parameters
-$request = "{$url}?{$qs}"; // create the request URL
+define("URL" , "https://api.nobitex.ir/v2/orderbook/all");
 
 
-$curl = curl_init(); // Get cURL resource
-// Set cURL options
-curl_setopt_array($curl, array(
-  CURLOPT_URL => $request,            // set the request URL
-  CURLOPT_HTTPHEADER => $headers,     // set the headers 
-  CURLOPT_RETURNTRANSFER => 1         // ask for raw response instead of bool
-));
-
-$response = curl_exec($curl); // Send the request, save the response
-print_r(json_decode($response)); // print json decoded response
-curl_close($curl); // Close request
-?>
+function get_data(){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // Set the url
+    curl_setopt($ch, CURLOPT_URL, URL);
+    // Execute
+    $result=curl_exec($ch);
+    // Closing
+    curl_close($ch);
+    return json_decode($result);
+}
+function beautify_data(){
+    $data = get_data();
+    $SYMBOLS = ['BTCIRT', 'ETHIRT', 'LTCIRT', 'USDTIRT', 'XRPIRT','BNBIRT', 'EOSIRT', 'XLMIRT','ETCIRT', 'TRXIRT', 'DOGEIRT', 'UNIIRT', 'DAIIRT', 'LINKIRT', 'DOTIRT',
+     'AAVEIRT', 'ADAIRT', 'SHIBIRT', 'FTMIRT', 'MATICIRT', 'AXSIRT', 'MANAIRT', 'SANDIRT', 'AVAXIRT', 'MKRIRT', 
+     'GMTIRT', 'USDCIRT', 'BTCUSDT', 'ETHUSDT', 'LTCUSDT', 'XRPUSDT', 'BCHUSDT', 'BNBUSDT', 'EOSUSDT', 'XLMUSDT',
+      'ETCUSDT', 'TRXUSDT', 'PMNUSDT', 'DOGEUSDT', 'UNIUSDT', 'DAIUSDT', 'LINKUSDT', 'DOTUSDT', 'AAVEUSDT', 'ADAUSDT',
+       'SHIBUSDT', 'FTMUSDT', 'MATICUSDT', 'AXSUSDT', 'MANAUSDT', 'SANDUSDT', 'AVAXUSDT', 'MKRUSDT', 'GMTUSDT', 'USDCUSDT'];
+    foreach ($SYMBOLS as $key => $value) {
+        echo $value . '<br>';
+    }
+}
+beautify_data();
