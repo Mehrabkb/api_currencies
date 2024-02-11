@@ -55,9 +55,10 @@ function beautify_data(){
     </head>
     <body>
         <div class="container">
-        <h1 class="pt-3 pb-3">نرخ بازر ارز دیجیتال</h1>
+        <h1 class="pt-3 pb-3">نرخ بازار ارز دیجیتال</h1>
         <p>تمامی قیمت های زیر از سایت نوبیتکس استعلام گرفته شده میتوانید برای قیمت های بیشتر به این سایت مراجعه کنید</p>
-        <a href="https://nobitex.ir/" target="_blank">سایت نوبیتکس</a>
+        <a class="btn btn-primary" href="https://nobitex.ir/" target="_blank">سایت نوبیتکس</a>
+        <a href="http://mehrabkordbacheh.com" class="btn btn-success" target="_self">بازگشت به سایت </a>
         <div class="row">
 
 
