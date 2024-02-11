@@ -59,6 +59,7 @@ function beautify_data(){
         <p>تمامی قیمت های زیر از سایت نوبیتکس استعلام گرفته شده میتوانید برای قیمت های بیشتر به این سایت مراجعه کنید</p>
         <a class="btn btn-primary" href="https://nobitex.ir/" target="_blank">سایت نوبیتکس</a>
         <a href="http://mehrabkordbacheh.com" class="btn btn-success" target="_self">بازگشت به سایت </a>
+        <a href="https://github.com/Mehrabkb/api_currencies" class="btn btn-dark">سورس کد این صفحه </a>
         <div class="row">
 
 
